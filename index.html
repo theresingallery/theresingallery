@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>TheResinGallery</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    /* CSS for Order Button */
+    .order-btn {
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .order-btn:hover {
+      background: linear-gradient(135deg, #ee5a24, #c23616);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(238, 90, 36, 0.3);
+      color: white;
+    }
+
+    .menu-content {
+      position: relative;
+    }
+
+    /* CSS for Image Popup Modal */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .image-modal.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-content {
+      position: relative;
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      max-width: 900px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .modal-images {
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10001;
+    }
+
+    .close-modal:hover {
+      color: #ff6b6b;
+    }
+
+    /* Navigation arrows for multiple images */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 15px 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .nav-arrow:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .prev-arrow {
+      left: 20px;
+    }
+
+    .next-arrow {
+      right: 20px;
+    }
+
+    .image-counter {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+    }
+
+    /* Make menu images clickable */
+    .menu-img {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+  <!-- =======================================================
+  * Template Name: NiceRestaurant
+  * Template URL: https://bootstrapmade.com/nice-restaurant-bootstrap-template/
+  * Updated: Jun 06 2025 with Bootstrap v5.3.6
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.jpg" alt="">
+        <!-- <i class="bi bi-fork-knife"></i> -->
+        <h1 class="sitename">TheResinGallery</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Gallery</a></li>
+          <!-- <li><a href="#book-a-table">Book a Table</a></li> -->
+          <!-- <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#events">Events</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li> -->
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted d-none d-sm-block"
+        href="https://wa.me/919500826812?text=Hello%20I%20want%20to%20order%20your%20product" target="_blank">
+        Order Product
+      </a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="container-fluid hero-container" data-aos="fade-up">
+        <div class="row g-0 align-items-center">
+          <div class="col-lg-6 content-col">
+            <div class="content-wrapper">
+              <!-- <div class="status-badge">Reservations Open</div> -->
+              <h2>"Handmade With Love"</h2>
+              <p>Every piece here is more than resin art — it’s a story of passion, beauty, and timeless
+                craftsmanship.From unique décor to custom treasures, we create art that speaks from the heart.
+              </p>
+              <!-- <p>From unique décor to custom treasures, we create art that speaks from the heart.</p> -->
+              <div class="opening-hours" data-aos="fade-up" data-aos-delay="500">
+                <i class="bi bi-clock"></i>
+                <span>Order Daily: 10am - 9pm</span>
+              </div>
+
+              <div class="btn-group">
+                <!-- <a href="#book-a-table" class="btn btn-book">For Order</a> -->
+                <a class="btn btn-book"
+                  href="https://wa.me/919500826812?text=Hello%20I%20want%20to%20order%20your%20product" target="_blank">
+                  For Order
+                </a>
+                <a href="#menu" class="btn btn-menu">Explore Our Gallery</a>
+              </div>
+
+              <div class="social-links">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a
+                  href="https://www.instagram.com/theresingallery._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+                    class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.youtube.com/@Prathima_Theresingallery"><i class="bi bi-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 swiper-col">
+            <div class="swiper hero-swiper init-swiper" data-aos="zoom-out" data-aos-delay="100">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 800,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "effect": "fade",
+                  "slidesPerView": 1,
+                  "navigation": {
+                    "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="img-container">
+                    <img src="assets/img/logo.jpg" alt="Restaurant Ambience">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img-container">
+                    <img src="assets/img/gallery/8.webp" alt="Signature Dish">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img-container">
+                    <img src="assets/img/gallery/6.jpg" alt="Expert Chefs">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img-container">
+                    <img src="assets/img/gallery/4.webp" alt="Expert Chefs">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-content">
+              <h3>Our Journey</h3>
+              <p class="fst-italic">The Resin Gallery — Handmade with love, turning resin into timeless art.</p>
+              <p>The Resin Gallery is where creativity flows into timeless resin art. Each piece is handmade with love,
+                polished to perfection, and designed to be one-of-a-kind. From elegant home décor to personalized gifts,
+                we craft stories you can cherish forever. With over 500+ happy customers and custom creations delivered,
+                we are proud to bring art that speaks from the heart.</p>
+
+              <!-- <div class="chef-signature mt-4">
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    <img src="assets/img/restaurant/chef-1.webp" class="chef-avatar rounded-circle" alt="Chef Portrait">
+                  </div>
+                  <div class="col">
+                    <p class="chef-message mb-2">“Art speaks where words are unable to explain.”</p>
+                    <p class="chef-name">God Father Nithish</p>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="about-image-wrapper">
+              <img src="assets/img/gallery/3.png" class="img-fluid main-image shadow" alt="Restaurant Interior">
+              <!-- <img src="assets/img/logo.jpg" style="height: 150px;" class="img-fluid accent-image shadow" alt="Chef Preparing Food"> -->
+              <!-- <video class="img-fluid accent-image shadow" autoplay muted loop playsinline>
+                <source src="assets/video/showcase.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video> -->
+              <span class="establishment-year d-flex align-items-center justify-content-center text-center">Est.
+                2024</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5 pt-4 features-section">
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-award"></i>
+              </div>
+              <h4>Handmade With Love</h4>
+              <p>Every piece is carefully hand-poured, polished, and perfected with love. Each swirl of resin holds a
+                part of our heart, making every creation truly one-of-a-kind.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h4>Premium Quality Craftsmanship</h4>
+              <p>We believe in creating art that lasts. Using high-grade resin, vibrant pigments, and a flawless finish,
+                every product shines with beauty and durability you can trust.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-heart"></i>
+              </div>
+              <h4>Perfect for Gifting & Décor</h4>
+              <p>Whether it’s to brighten your home or gift a loved one, our resin art brings luxury, charm, and meaning
+                to every occasion. A gift that feels as special as the person receiving it.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-egg-fried"></i>
+              </div>
+              <h4>Unique & Custom Designs</h4>
+              <p>No molds, no mass production — just pure artistry. From elegant wall décor to personalized keepsakes,
+                our resin creations are designed to reflect your story and style.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+            <div class="stats-container">
+              <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="1"
+                    data-purecounter-duration="0" class="purecounter">1</span>+</span>
+                <p class="stat-label">Years Experience</p>
+              </div>
+
+              <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="50"
+                    data-purecounter-duration="0" class="purecounter">50</span></span>
+                <p class="stat-label">Handmade Products</p>
+              </div>
+
+              <!-- <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="3"
+                    data-purecounter-duration="0" class="purecounter">3</span></span>
+                <p class="stat-label">Culinary Awards</p>
+              </div> -->
+
+              <div class="stat-item">
+                <span class="stat-number"><span data-purecounter-start="0" data-purecounter-end="500"
+                    data-purecounter-duration="0" class="purecounter">500</span>+</span>
+                <p class="stat-label">Happy Customers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Updated Menu Section HTML -->
+    <section id="menu" class="menu section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <p>We design unique resin décor and gifts that bring elegance, beauty, and meaning to every space.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <div class="menu-filters isotope-filters mb-5">
+            <ul>
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-starters">Resin Bracelets</li>
+              <li data-filter=".filter-main">Couple Nameplates</li>
+              <li data-filter=".filter-dessert">Valentine's Day Gifts</li>
+              <li data-filter=".filter-drinks">Mini Photo Albums</li>
+            </ul>
+          </div>
+
+          <div class="menu-container isotope-container row gy-4">
+            <!-- Updated Menu Items with Order Buttons and Clickable Images -->
+            <div class="col-lg-6 isotope-item filter-starters">
+              <div class="menu-item d-flex align-items-center gap-4">
+                <img src="assets/img/restaurant/starter-2.webp" alt="Resin Bracelet"
+                  class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/restaurant/starter-2.webp', 'assets/img/restaurant/starter-3.webp'], 0)"
+                  data-title="Elegant Resin Bracelet" data-price="₹599">
+                <div class="menu-content">
+                  <h5>Elegant Resin Bracelet </h5>
+                  <p>Beautiful handcrafted resin bracelet with unique patterns and vibrant colors.</p>
+                  <!-- <div class="price">₹599</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Elegant Resin Bracelet', 'Beautiful handcrafted resin bracelet with unique patterns and vibrant colors', '₹599')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-main">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <img src="assets/img/restaurant/main-1.webp" alt="Couple Nameplate" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/restaurant/main-1.webp', 'assets/img/restaurant/main-2.webp'], 0)"
+                  data-title="Custom Couple Nameplate" data-price="₹1299">
+                <div class="menu-content">
+                  <h5>Custom Couple Nameplate </h5>
+                  <p>Beautiful personalized resin nameplate perfect for couples and home decoration.</p>
+                  <!-- <div class="price">₹1299</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Custom Couple Nameplate', 'Beautiful personalized resin nameplate perfect for couples and home decoration', '₹1299')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-main">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <img src="assets/img/restaurant/main-4.webp" alt="Luxury Nameplate" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/restaurant/main-4.webp'], 0)"
+                  data-title="Luxury Couple Nameplate" data-price="₹1599">
+                <div class="menu-content">
+                  <h5>Luxury Couple Nameplate </h5>
+                  <p>Luxury resin nameplate with LED backlight and premium finishing touches.</p>
+                  <!-- <div class="price">₹1599</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Luxury Couple Nameplate', 'Luxury resin nameplate with LED backlight and premium finishing touches', '₹1599')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-dessert">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <img src="assets/img/restaurant/dessert-7.webp" alt="Love Collection"
+                  class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/restaurant/dessert-7.webp'], 0)"
+                  data-title="Romantic Love Collection" data-price="₹1199">
+                <div class="menu-content">
+                  <h5>Romantic Love Collection </h5>
+                  <p>Beautifully crafted romantic collection featuring love-themed resin art pieces.</p>
+                  <!-- <div class="price">₹1199</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Romantic Love Collection', 'Beautifully crafted romantic collection featuring love-themed resin art pieces', '₹1199')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-drinks">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <img src="assets/img/gallery/2.webp" alt="Mini Photo Album" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/2.webp', 'assets/img/gallery/3.webp'], 0)"
+                  data-title="Custom Mini Photo Album" data-price="₹799">
+                <div class="menu-content">
+                  <h5>Custom Mini Photo Album </h5>
+                  <p>Personalized mini photo album with resin cover featuring your favorite memories.</p>
+                  <!-- <div class="price">₹799</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Custom Mini Photo Album', 'Personalized mini photo album with resin cover featuring your favorite memories')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-dessert">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <img src="assets/img/gallery/4.webp" alt="Valentine Gift Set" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/4.webp', 'assets/img/gallery/5.webp'], 0)"
+                  data-title="Valentine's Day Gift Set" data-price="₹899">
+                <div class="menu-content">
+                  <h5>Valentine's Day Gift Set </h5>
+                  <p>Perfect Valentine's gift set with resin heart keychains and decorative items.</p>
+                  <!-- <div class="price">₹899</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Valentine\'s Day Gift Set', 'Perfect Valentine\'s gift set with resin heart keychains and decorative items', '₹899')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-starters">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <img src="assets/img/restaurant/starter-5.webp" alt="Premium Resin Bracelet"
+                  class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/restaurant/starter-5.webp'], 0)"
+                  data-title="Premium Resin Bracelet" data-price="₹799">
+                <div class="menu-content">
+                  <h5>Premium Resin Bracelet</h5>
+                  <p>Premium quality resin bracelet with gold leaf accents and artistic design.</p>
+                  <!-- <div class="price">₹799</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Premium Resin Bracelet', 'Premium quality resin bracelet with gold leaf accents and artistic design', '₹799')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-drinks">
+              <div class="d-flex menu-item align-items-center gap-4">
+                <img src="assets/img/gallery/1.webp" alt="Memory Album" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/restaurant/drink-8.webp', 'assets/img/restaurant/drink-9.webp'], 0)"
+                  data-title="Premium Memory Album" data-price="₹999">
+                <div class="menu-content">
+                  <h5>Premium Memory Album </h5>
+                  <p>Premium quality photo album with artistic resin design and gold detailing.</p>
+                  <!-- <div class="price">₹999</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Premium Memory Album', 'Premium quality photo album with artistic resin design and gold detailing', '₹999')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="text-center mt-5" data-aos="fade-up">
+          <a href="#" class="download-menu" id="downloadCatalog" onclick="openPDFInNewTab()">
+            <i class="bi bi-file-earmark-pdf"></i>
+            <span class="download-text">View Full Catalog</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeImageModal()">&times;</span>
+        <div class="modal-images">
+          <img id="modalImage" class="modal-image" src="" alt="">
+          <button class="nav-arrow prev-arrow" onclick="changeImage(-1)" style="display: none;">❮</button>
+          <button class="nav-arrow next-arrow" onclick="changeImage(1)" style="display: none;">❯</button>
+          <div class="image-counter" id="imageCounter" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+    <!-- /Menu Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Real Stories. Real Smiles</h2>
+        <p>Don’t just take our word for it—see how our products are making a difference for people every day.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  I ordered a resin earring and a moon keychain from Resin Gallery, and I’m absolutely in love with
+                  both! 🌙✨
+                  The quality is top-notch, and the designs are so dreamy and unique. The service was smooth,
+                  responsive, and really pleasant.
+                  I even got featured on their Instagram page, which made the experience extra special! 💖
+                  Highly recommend Resin Gallery if you're looking for beautiful handmade gifts or accessories. 🌸💫
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/femaleava.avif" class="testimonial-img" alt="">
+                  <h3>Maria Madona</h3>
+                  <h4>Customer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  I ordered a Spotify keychain and custom resin art from Resin Gallery (Instagram) as a surprise gift
+                  for my wife, and it turned out absolutely perfect.
+                  Spotify keychain with our special song made it even more meaningful..it became a
+                  memory.
+                  The seller was very kind and responsive throughout the process and made sure everything was packed
+                  securely and delivered safely.
+                  I highly recommend this page to anyone for personalised gifts. </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/maleava.avif" class="testimonial-img" alt="">
+                  <h3>Chandra Sekar</h3>
+                  <h4>Customer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Great support and best service we got and products all looks pretty and quality was awesome. Trusted
+                  one.!!
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/maleava.avif" class="testimonial-img" alt="">
+                  <h3>Dharan Manickam</h3>
+                  <h4>Customer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Very much friendly work. Satisfaction on high level. Thanks for preserving our memories ❤️
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/femaleava.avif" class="testimonial-img" alt="">
+                  <h3>Nisha Ebarila</h3>
+                  <h4>Customer</h4>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <!-- 
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa
+                  labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                </p>
+                <div class="profile mt-auto">
+                  <img src="assets/img/person/person-m-13.webp" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Location Section -->
+    <section id="location" class="location section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Location</h2>
+        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-4">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.929694822991!2d78.16240647502984!3d9.900374990199973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c529f097c155%3A0xa8cc89ef99c20cbd!2sThe%20Resin%20Gallery!5e1!3m2!1sen!2sin!4v1755620104134!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <div class="info-container">
+              <div class="section-header">
+                <h2>Find Us</h2>
+                <p>Visit Us Today</p>
+              </div>
+
+              <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="info-icon">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Our Location</h3>
+                  <p>teacher's colony, 2nd Main Rd, Viraganur, Madurai, Tamil Nadu 625009</p>
+                </div>
+              </div>
+
+              <div class="info-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="info-icon">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Phone No.</h3>
+                  <p>+91 9500826812</p>
+                  <!-- <p class="small-text">We recommend making reservations at least 48 hours in advance</p> -->
+                </div>
+              </div>
+
+              <div class="info-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="info-icon">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Hours</h3>
+                  <div class="hours-grid">
+                    <div class="day">Monday - Thursday</div>
+                    <div class="time">10:00 AM - 9:00 PM</div>
+
+                    <div class="day">Friday - Saturday</div>
+                    <div class="time">10:00 AM - 9:00 PM</div>
+
+                    <div class="day">Sunday</div>
+                    <div class="time">10:00 AM - 9:00 PM</div>
+
+                    <!-- <div class="day">Brunch Hours</div>
+                    <div class="time">Sat &amp; Sun, 10:00 AM - 2:00 PM</div> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="cta-wrapper" data-aos="fade-up" data-aos-delay="600">
+                <a href="#" class="btn-book">For Order</a>
+                <a href="#" class="btn-contact">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Location Section -->
+
+    <!-- Events Section -->
+    <section id="events" class="events section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="featured-events" data-aos="fade-up" data-aos-delay="200">
+          <h3>Special Events</h3>
+
+          <div class="row g-4">
+            <div class="col-lg-6 col-md-6">
+              <div class="featured-event-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="event-date">
+                  <span class="month">AUG</span>
+                  <span class="day">15</span>
+                </div>
+                <div class="event-content">
+                  <div class="event-image">
+                    <img src="assets/img/gallery/indiaflag.jpg" alt="Summer Wine Festival" class="img-fluid">
+                  </div>
+                  <div class="event-info">
+                    <h4>Independence Day Offers</h4>
+                    <ul class="event-meta">
+                      <li><i class="bi bi-calendar-date"></i> 15th August</li>
+                      <li><i class="bi bi-clock"></i> Active</li>
+                    </ul>
+                    <p>“Freedom in Colors” Offer – Flat 15% Off on all tricolor-themed resin art.
+                    </p>
+                    <!-- <p>Buy 1, Gift 1 Freedom Mini – Buy any décor item, get a small resin keychain/coaster free.
+                    </p> -->
+                    <!-- <p>Patriotic Special Collection – Limited-edition resin coasters, trays, or bookmarks inspired by
+                      the tricolor.
+                    </p> -->
+                    <!-- <p>Freedom Week Sale – 12th–18th Aug: Special discounts on custom nameplates & wall art.
+                    </p> -->
+                    <a href="#" class="btn-details">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="featured-event-card" data-aos="fade-up" data-aos-delay="300">
+                <!-- <div class="event-date">
+                  <span class="month">Jul</span>
+                  <span class="day">05</span>
+                </div> -->
+                <div class="event-content">
+                  <div class="event-image">
+                    <img src="assets/img/gallery/happy-diwali.jpg" alt="Gourmet Tasting Night" class="img-fluid">
+                  </div>
+                  <div class="event-info">
+                    <h4>Diwali Offers (Festival of Lights)</h4>
+                    <ul class="event-meta">
+                      <li><i class="bi bi-calendar-date"></i> Soon</li>
+                      <li><i class="bi bi-clock"></i> Upcoming</li>
+                    </ul>
+                    <!-- <p>“Light Up Your Home” Offer – Flat 20% Off on resin lamps, tea-light holders, and festive décor.
+                    </p> -->
+                    <!-- <p>Diwali Gifting Packs – Special combo packs of coasters + trays + keychains, beautifully
+                      gift-wrapped.
+                    </p> -->
+                    <p>“Sparkle with Resin” Contest – Customers who buy during Diwali enter a giveaway to win a custom
+                      resin art piece.
+                    </p>
+                    <!-- <p>Limited-Edition Festival Collection – Gold, glitter, and deep colors (like royal blue, maroon,
+                      emerald) for Diwali vibes.
+                    </p> -->
+                    <a href="#" class="btn-details">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Events Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Contact Info Boxes -->
+        <div class="row gy-4 mb-5">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="info-content">
+                <h4>Our Address</h4>
+                <p>Teacher's colony, 2nd Main Rd, Viraganur, Madurai, Tamil Nadu 625009</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h4>Email Address</h4>
+                <p>info@example.com</p>
+                <p>contact@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="contact-info-box">
+              <div class="icon-box">
+                <i class="bi bi-headset"></i>
+              </div>
+              <div class="info-content">
+                <h4>Hours</h4>
+                <p>Sunday-Fri: 10 AM - 9 PM</p>
+                <p>Saturday : 10 AM - 9 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Google Maps (Full Width) -->
+      <!-- <div class="map-section" data-aos="fade-up" data-aos-delay="200">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+          width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div> -->
+
+      <!-- Contact Form Section (Overlapping) -->
+      <!-- <div class="container form-container-overlap">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-10">
+            <div class="contact-form-wrapper">
+              <h2 class="text-center mb-4">Get in Touch</h2>
+
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-person"></i>
+                        <input type="text" class="form-control" name="name" placeholder="First Name" required="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-envelope"></i>
+                        <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-text-left"></i>
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="bi bi-chat-dots message-icon"></i>
+                        <textarea class="form-control" name="message" placeholder="Write Message..."
+                          style="height: 180px" required=""></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-submit">SEND MESSAGE</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div> -->
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">TheResinGallery</span>
+          </a>
+          <p>At The Resin Gallery, every creation is lovingly handcrafted with passion and care.
+            We design unique resin décor and gifts that bring elegance, beauty, and meaning to every space.</p>
+
+        </div>
+
+
+
+        <div class="col-lg-2 col-6 footer-links">
+          <!-- <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul> -->
+        </div>
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Gallery</a></li>
+            <!-- <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li> -->
+          </ul>
+        </div>
+
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a
+              href="https://www.instagram.com/theresingallery._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+                class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@Prathima_Theresingallery"><i class="bi bi-youtube"></i></a>
+          </div>
+          <!-- <h4>Contact Us</h4>
+          <p>A108 Adam Street</p>
+          <p>New York, NY 535022</p>
+          <p>United States</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+          <p><strong>Email:</strong> <span>info@example.com</span></p> -->
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">TheResinGallery</strong> <span>All Rights
+          Reserved</span>
+      </p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">Nova Infotech</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+
+    function openPDFInNewTab() {
+      const pdfPath = 'assets/img/RESIN GALLERY DAIRY.pdf';
+      window.open(pdfPath, '_blank');
+    }
+    // JavaScript for Order Functionality
+    function orderProduct(title, description, price) {
+      // Format the message for WhatsApp
+      const message = `Hello! I would like to order:
+
+      Product: ${title}
+      Description: ${description}
+      Price: ${price}
+
+      Please provide more details about availability and delivery.`;
+
+      // Encode the message for URL
+      const encodedMessage = encodeURIComponent(message);
+
+      // WhatsApp API link (replace with your actual WhatsApp number)
+      const whatsappNumber = "919500826812";
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      // Open WhatsApp
+      window.open(whatsappURL, '_blank');
+    }
+
+    // JavaScript for Image Modal Functionality
+    let currentImages = [];
+    let currentImageIndex = 0;
+
+    function openImageModal(images, startIndex = 0) {
+      currentImages = images;
+      currentImageIndex = startIndex;
+
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const prevArrow = document.querySelector('.prev-arrow');
+      const nextArrow = document.querySelector('.next-arrow');
+      const counter = document.getElementById('imageCounter');
+
+      // Show modal
+      modal.classList.add('show');
+
+      // Set initial image
+      modalImage.src = currentImages[currentImageIndex];
+
+      // Show/hide navigation arrows based on number of images
+      if (currentImages.length > 1) {
+        prevArrow.style.display = 'block';
+        nextArrow.style.display = 'block';
+        counter.style.display = 'block';
+        updateImageCounter();
+      } else {
+        prevArrow.style.display = 'none';
+        nextArrow.style.display = 'none';
+        counter.style.display = 'none';
+      }
+
+      // Prevent body scrolling
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('show');
+
+      // Re-enable body scrolling
+      document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(direction) {
+      currentImageIndex += direction;
+
+      // Handle wrapping
+      if (currentImageIndex >= currentImages.length) {
+        currentImageIndex = 0;
+      } else if (currentImageIndex < 0) {
+        currentImageIndex = currentImages.length - 1;
+      }
+
+      // Update image
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = currentImages[currentImageIndex];
+
+      updateImageCounter();
+    }
+
+    function updateImageCounter() {
+      const counter = document.getElementById('imageCounter');
+      counter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+    }
+
+    // Close modal when clicking outside the image
+    document.getElementById('imageModal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeImageModal();
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      }
+      // Navigate with arrow keys
+      if (document.getElementById('imageModal').classList.contains('show')) {
+        if (e.key === 'ArrowLeft') {
+          changeImage(-1);
+        } else if (e.key === 'ArrowRight') {
+          changeImage(1);
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
