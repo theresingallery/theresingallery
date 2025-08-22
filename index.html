@@ -169,24 +169,691 @@
     .menu-img:hover {
       transform: scale(1.05);
     }
+
+    /* Enhanced Fantasy Celebration Popup Styles */
+    .celebration-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      background-size: 400% 400%;
+      animation: magicalBackground 8s ease infinite;
+      z-index: 99999;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    @keyframes magicalBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .celebration-popup.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: popupMagicalEntry 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    @keyframes popupMagicalEntry {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-180deg);
+        filter: blur(20px);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(10deg);
+        filter: blur(5px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+        filter: blur(0px);
+      }
+    }
+
+    .celebration-container {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(240, 248, 255, 0.95) 50%,
+          rgba(255, 240, 245, 0.95) 100%);
+      border-radius: 30px;
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 0 100px rgba(138, 43, 226, 0.4);
+      animation: containerFloat 4s ease-in-out infinite;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      border: 3px solid;
+      /* border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57) 1; */
+    }
+
+    @keyframes containerFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.3),
+          0 0 100px rgba(138, 43, 226, 0.4);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(1deg);
+        box-shadow:
+          0 40px 100px rgba(0, 0, 0, 0.4),
+          0 0 120px rgba(255, 20, 147, 0.6);
+      }
+    }
+
+    .celebration-header {
+      background: linear-gradient(135deg,
+          #ff6b6b 0%,
+          #4ecdc4 20%,
+          #45b7d1 40%,
+          #96ceb4 60%,
+          #feca57 80%,
+          #ff9ff3 100%);
+      background-size: 600% 600%;
+      animation: rainbowShift 3s ease infinite;
+      padding: 30px;
+      text-align: center;
+      border-radius: 30px 30px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .celebration-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+      animation: shimmer 2s linear infinite;
+    }
+
+    @keyframes rainbowShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .celebration-title {
+      color: white;
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0;
+      text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.8);
+      animation: titleMagic 3s ease-in-out infinite;
+      font-family: 'Dancing Script', cursive;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes titleMagic {
+
+      0%,
+      100% {
+        transform: scale(1) rotateY(0deg);
+        text-shadow:
+          2px 2px 4px rgba(0, 0, 0, 0.5),
+          0 0 20px rgba(255, 255, 255, 0.8);
+      }
+
+      50% {
+        transform: scale(1.1) rotateY(5deg);
+        text-shadow:
+          3px 3px 6px rgba(0, 0, 0, 0.6),
+          0 0 30px rgba(255, 255, 255, 1),
+          0 0 40px rgba(255, 20, 147, 0.8);
+      }
+    }
+
+    .celebration-image-container {
+      height: 400;
+      width: 400;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .celebration-image {
+      width: 350px;
+      height: 400px;
+      border-radius: 25px;
+      object-fit: cover;
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3),
+        0 0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 0 10px rgba(138, 43, 226, 0.3);
+      animation: imageEnchantment 4s ease-in-out infinite;
+      border: 5px solid transparent;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4) padding-box,
+        linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4) border-box;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes imageEnchantment {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.3),
+          0 0 0 5px rgba(255, 255, 255, 0.8),
+          0 0 0 10px rgba(138, 43, 226, 0.3);
+      }
+
+      25% {
+        transform: translateY(-10px) rotate(2deg) scale(1.02);
+        box-shadow:
+          0 25px 60px rgba(0, 0, 0, 0.4),
+          0 0 0 5px rgba(255, 255, 255, 1),
+          0 0 0 10px rgba(255, 20, 147, 0.5);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(0deg) scale(1.05);
+        box-shadow:
+          0 30px 70px rgba(0, 0, 0, 0.4),
+          0 0 0 5px rgba(255, 255, 255, 1),
+          0 0 0 10px rgba(50, 205, 50, 0.5);
+      }
+
+      75% {
+        transform: translateY(-10px) rotate(-2deg) scale(1.02);
+        box-shadow:
+          0 25px 60px rgba(0, 0, 0, 0.4),
+          0 0 0 5px rgba(255, 255, 255, 1),
+          0 0 0 10px rgba(255, 165, 0, 0.5);
+      }
+    }
+
+    .celebration-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      color: white;
+      font-size: 28px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      backdrop-filter: blur(15px);
+      z-index: 10;
+      font-weight: bold;
+    }
+
+    .celebration-close:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+      transform: rotate(180deg) scale(1.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Enhanced Magical Particles */
+    .magical-particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particleMagic 4s linear infinite;
+    }
+
+    .magical-particle:nth-child(odd) {
+      background: radial-gradient(circle, #ff6b6b, transparent);
+      animation-duration: 3s;
+    }
+
+    .magical-particle:nth-child(even) {
+      background: radial-gradient(circle, #4ecdc4, transparent);
+      animation-duration: 5s;
+    }
+
+    @keyframes particleMagic {
+      0% {
+        transform: translateY(100vh) rotate(0deg) scale(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+        transform: translateY(90vh) rotate(36deg) scale(1);
+      }
+
+      90% {
+        opacity: 1;
+        transform: translateY(-10vh) rotate(324deg) scale(1);
+      }
+
+      100% {
+        transform: translateY(-20vh) rotate(360deg) scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* Floating Magical Elements */
+    .floating-magic {
+      position: absolute;
+      font-size: 30px;
+      animation: magicFloat 6s ease-in-out infinite;
+      opacity: 0.8;
+      text-shadow: 0 0 20px currentColor;
+    }
+
+    .floating-magic:nth-child(1) {
+      top: 15%;
+      left: 10%;
+      animation-delay: 0s;
+      color: #ff6b6b;
+    }
+
+    .floating-magic:nth-child(2) {
+      top: 25%;
+      right: 15%;
+      animation-delay: 1s;
+      color: #4ecdc4;
+    }
+
+    .floating-magic:nth-child(3) {
+      bottom: 30%;
+      left: 15%;
+      animation-delay: 2s;
+      color: #45b7d1;
+    }
+
+    .floating-magic:nth-child(4) {
+      bottom: 20%;
+      right: 20%;
+      animation-delay: 3s;
+      color: #96ceb4;
+    }
+
+    .floating-magic:nth-child(5) {
+      top: 40%;
+      left: 5%;
+      animation-delay: 4s;
+      color: #feca57;
+    }
+
+    .floating-magic:nth-child(6) {
+      top: 60%;
+      right: 8%;
+      animation-delay: 5s;
+      color: #ff9ff3;
+    }
+
+    @keyframes magicFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        opacity: 0.8;
+      }
+
+      25% {
+        transform: translateY(-30px) rotate(90deg) scale(1.2);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(180deg) scale(0.8);
+        opacity: 0.6;
+      }
+
+      75% {
+        transform: translateY(-40px) rotate(270deg) scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    /* Enhanced Sparkle Effects */
+    .sparkle-enhanced {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, white, transparent);
+      border-radius: 50%;
+      animation: sparkleEnhanced 3s ease-in-out infinite;
+      box-shadow: 0 0 10px white;
+    }
+
+    .sparkle-enhanced:nth-child(1) {
+      top: 20%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .sparkle-enhanced:nth-child(2) {
+      top: 30%;
+      right: 25%;
+      animation-delay: 0.5s;
+    }
+
+    .sparkle-enhanced:nth-child(3) {
+      bottom: 35%;
+      left: 30%;
+      animation-delay: 1s;
+    }
+
+    .sparkle-enhanced:nth-child(4) {
+      bottom: 25%;
+      right: 20%;
+      animation-delay: 1.5s;
+    }
+
+    .sparkle-enhanced:nth-child(5) {
+      top: 50%;
+      left: 15%;
+      animation-delay: 2s;
+    }
+
+    .sparkle-enhanced:nth-child(6) {
+      top: 70%;
+      right: 30%;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes sparkleEnhanced {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+        box-shadow: 0 0 10px white;
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+        box-shadow: 0 0 20px white, 0 0 30px #ff6b6b, 0 0 40px #4ecdc4;
+      }
+    }
+
+    /* Magical Orbs */
+    .magical-orb {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent);
+      animation: orbFloat 8s ease-in-out infinite;
+      box-shadow: 0 0 20px currentColor;
+    }
+
+    .magical-orb:nth-child(1) {
+      top: 10%;
+      left: 80%;
+      background-color: #ff6b6b;
+      animation-delay: 0s;
+    }
+
+    .magical-orb:nth-child(2) {
+      top: 80%;
+      left: 10%;
+      background-color: #4ecdc4;
+      animation-delay: 2s;
+    }
+
+    .magical-orb:nth-child(3) {
+      top: 60%;
+      left: 85%;
+      background-color: #45b7d1;
+      animation-delay: 4s;
+    }
+
+    .magical-orb:nth-child(4) {
+      top: 30%;
+      left: 5%;
+      background-color: #96ceb4;
+      animation-delay: 6s;
+    }
+
+    @keyframes orbFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+      }
+
+      25% {
+        transform: translate(-50px, -30px) scale(1.2);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translate(-30px, -60px) scale(0.8);
+        opacity: 0.5;
+      }
+
+      75% {
+        transform: translate(-70px, -20px) scale(1.1);
+        opacity: 0.9;
+      }
+    }
+
+    /* Birthday Trigger Button Enhancement */
+    .birthday-trigger-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #ff6b6b, #feca57, #4ecdc4);
+      background-size: 200% 200%;
+      animation: buttonMagic 3s ease infinite;
+      color: white;
+      border: none;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow:
+        0 10px 30px rgba(255, 107, 107, 0.5),
+        0 0 0 0 rgba(255, 107, 107, 0.7);
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .birthday-trigger-btn:hover {
+      transform: scale(1.2) rotate(15deg);
+      box-shadow:
+        0 15px 40px rgba(255, 107, 107, 0.7),
+        0 0 0 10px rgba(255, 107, 107, 0.3),
+        0 0 0 20px rgba(255, 107, 107, 0.1);
+    }
+
+    @keyframes buttonMagic {
+      0% {
+        background-position: 0% 50%;
+        box-shadow:
+          0 10px 30px rgba(255, 107, 107, 0.5),
+          0 0 0 0 rgba(255, 107, 107, 0.7);
+      }
+
+      50% {
+        background-position: 100% 50%;
+        box-shadow:
+          0 15px 40px rgba(78, 205, 196, 0.5),
+          0 0 0 5px rgba(78, 205, 196, 0.4);
+      }
+
+      100% {
+        background-position: 0% 50%;
+        box-shadow:
+          0 10px 30px rgba(255, 107, 107, 0.5),
+          0 0 0 0 rgba(255, 107, 107, 0.7);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .celebration-container {
+        width: 95%;
+        height: auto;
+        max-width: 450px;
+        max-height: 90vh;
+      }
+
+      .celebration-image {
+        width: 280px;
+        height: 280px;
+      }
+
+      .celebration-title {
+        font-size: 28px;
+      }
+
+      .birthday-trigger-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .celebration-container {
+        width: 90%;
+        margin: 20px;
+      }
+
+      .celebration-image {
+        width: 250px;
+        height: 250px;
+      }
+
+      .celebration-title {
+        font-size: 24px;
+      }
+
+      .celebration-header {
+        padding: 20px;
+      }
+
+      .celebration-image-container {
+        padding: 30px 20px;
+      }
+    }
   </style>
-  <!-- =======================================================
-  * Template Name: NiceRestaurant
-  * Template URL: https://bootstrapmade.com/nice-restaurant-bootstrap-template/
-  * Updated: Jun 06 2025 with Bootstrap v5.3.6
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
 
+  <!-- Enhanced Fantasy Birthday Celebration Popup -->
+  <div id="celebrationPopup" class="celebration-popup">
+    <!-- Magical Particles -->
+    <div class="magical-particle" style="left: 5%; width: 8px; height: 8px;"></div>
+    <div class="magical-particle" style="left: 15%; width: 12px; height: 12px;"></div>
+    <div class="magical-particle" style="left: 25%; width: 6px; height: 6px;"></div>
+    <div class="magical-particle" style="left: 35%; width: 10px; height: 10px;"></div>
+    <div class="magical-particle" style="left: 45%; width: 8px; height: 8px;"></div>
+    <div class="magical-particle" style="left: 55%; width: 14px; height: 14px;"></div>
+    <div class="magical-particle" style="left: 65%; width: 7px; height: 7px;"></div>
+    <div class="magical-particle" style="left: 75%; width: 11px; height: 11px;"></div>
+    <div class="magical-particle" style="left: 85%; width: 9px; height: 9px;"></div>
+    <div class="magical-particle" style="left: 95%; width: 13px; height: 13px;"></div>
+
+    <div class="celebration-container">
+      <!-- Floating Magical Elements -->
+      <div class="floating-magic">🌟</div>
+      <div class="floating-magic">✨</div>
+      <div class="floating-magic">🎂</div>
+      <div class="floating-magic">🎉</div>
+      <div class="floating-magic">💖</div>
+      <div class="floating-magic">🦄</div>
+
+      <!-- Enhanced Sparkles -->
+      <div class="sparkle-enhanced"></div>
+      <div class="sparkle-enhanced"></div>
+      <div class="sparkle-enhanced"></div>
+      <div class="sparkle-enhanced"></div>
+      <div class="sparkle-enhanced"></div>
+      <div class="sparkle-enhanced"></div>
+
+      <!-- Magical Orbs -->
+      <div class="magical-orb"></div>
+      <div class="magical-orb"></div>
+      <div class="magical-orb"></div>
+      <div class="magical-orb"></div>
+
+      <button class="celebration-close" onclick="closeCelebrationPopup()">×</button>
+
+      <div class="celebration-header">
+        <h2 class="celebration-title">🎉 Magical Birthday Celebration! 🎂✨</h2>
+      </div>
+
+      <div class="celebration-image-container">
+        <img id="celebrationImage" class="celebration-image" src="assets/img/gallery/birthday.jpeg"
+          alt="Birthday Celebration">
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Birthday Trigger Button -->
+  <button class="birthday-trigger-btn" onclick="openCelebrationPopup()" title="Magical Birthday Celebration">
+    🎂
+  </button>
+
+  ]
+
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/logo.jpg" alt="">
+        <img src="assets/img/favicon.png" alt="">
         <!-- <i class="bi bi-fork-knife"></i> -->
         <h1 class="sitename">TheResinGallery</h1>
       </a>
@@ -239,7 +906,7 @@
             <div class="content-wrapper">
               <!-- <div class="status-badge">Reservations Open</div> -->
               <h2>"Handmade With Love"</h2>
-              <p>Every piece here is more than resin art — it’s a story of passion, beauty, and timeless
+              <p>Every piece here is more than resin art — it's a story of passion, beauty, and timeless
                 craftsmanship.From unique décor to custom treasures, we create art that speaks from the heart.
               </p>
               <!-- <p>From unique décor to custom treasures, we create art that speaks from the heart.</p> -->
@@ -338,7 +1005,7 @@
                     <img src="assets/img/restaurant/chef-1.webp" class="chef-avatar rounded-circle" alt="Chef Portrait">
                   </div>
                   <div class="col">
-                    <p class="chef-message mb-2">“Art speaks where words are unable to explain.”</p>
+                    <p class="chef-message mb-2">"Art speaks where words are unable to explain."</p>
                     <p class="chef-name">God Father Nithish</p>
                   </div>
                 </div>
@@ -389,7 +1056,7 @@
                 <i class="bi bi-heart"></i>
               </div>
               <h4>Perfect for Gifting & Décor</h4>
-              <p>Whether it’s to brighten your home or gift a loved one, our resin art brings luxury, charm, and meaning
+              <p>Whether it's to brighten your home or gift a loved one, our resin art brings luxury, charm, and meaning
                 to every occasion. A gift that feels as special as the person receiving it.</p>
             </div>
           </div>
@@ -454,8 +1121,8 @@
           <div class="menu-filters isotope-filters mb-5">
             <ul>
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-starters">Resin Bracelets</li>
-              <li data-filter=".filter-main">Couple Nameplates</li>
+              <li data-filter=".filter-starters">Resin Frames</li>
+              <li data-filter=".filter-main">Couple Gifts</li>
               <li data-filter=".filter-dessert">Valentine's Day Gifts</li>
               <li data-filter=".filter-drinks">Mini Photo Albums</li>
             </ul>
@@ -463,60 +1130,44 @@
 
           <div class="menu-container isotope-container row gy-4">
             <!-- Updated Menu Items with Order Buttons and Clickable Images -->
-            <div class="col-lg-6 isotope-item filter-starters">
-              <div class="menu-item d-flex align-items-center gap-4">
-                <img src="assets/img/restaurant/starter-2.webp" alt="Resin Bracelet"
-                  class="menu-img img-fluid rounded-3"
-                  onclick="openImageModal(['assets/img/restaurant/starter-2.webp', 'assets/img/restaurant/starter-3.webp'], 0)"
-                  data-title="Elegant Resin Bracelet" data-price="₹599">
-                <div class="menu-content">
-                  <h5>Elegant Resin Bracelet </h5>
-                  <p>Beautiful handcrafted resin bracelet with unique patterns and vibrant colors.</p>
-                  <!-- <div class="price">₹599</div> -->
-                  <a href="#" class="order-btn"
-                    onclick="orderProduct('Elegant Resin Bracelet', 'Beautiful handcrafted resin bracelet with unique patterns and vibrant colors', '₹599')">Order
-                    Now</a>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-lg-6 isotope-item filter-main">
+            <div class="col-lg-6 isotope-item filter-starters">
               <div class="d-flex menu-item align-items-center gap-4">
-                <img src="assets/img/restaurant/main-1.webp" alt="Couple Nameplate" class="menu-img img-fluid rounded-3"
-                  onclick="openImageModal(['assets/img/restaurant/main-1.webp', 'assets/img/restaurant/main-2.webp'], 0)"
+                <img src="assets/img/gallery/20.jpeg" alt="Couple Nameplate" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/18.jpeg','assets/img/gallery/20.jpeg','assets/img/gallery/22.jpeg'], 0)"
                   data-title="Custom Couple Nameplate" data-price="₹1299">
                 <div class="menu-content">
-                  <h5>Custom Couple Nameplate </h5>
-                  <p>Beautiful personalized resin nameplate perfect for couples and home decoration.</p>
+                  <h5>Baby Things Preservation Frame</h5>
+                  <p>frame is a keepsake frame designed to safely preserve and display
+                    cherished baby items like photos, tiny belongings as lifelong memories.</p>
                   <!-- <div class="price">₹1299</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Custom Couple Nameplate', 'Beautiful personalized resin nameplate perfect for couples and home decoration', '₹1299')">Order
+                    onclick="orderProduct('Baby Things Preservation Frame', 'Beautiful personalized resin nameplate perfect for couples and home decoration', '₹1299')">Order
                     Now</a>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-6 isotope-item filter-main">
+            <div class="col-lg-6 isotope-item filter-starters">
               <div class="d-flex menu-item align-items-center gap-4">
-                <img src="assets/img/restaurant/main-4.webp" alt="Luxury Nameplate" class="menu-img img-fluid rounded-3"
-                  onclick="openImageModal(['assets/img/restaurant/main-4.webp'], 0)"
-                  data-title="Luxury Couple Nameplate" data-price="₹1599">
+                <img src="assets/img/gallery/6.jpg" alt="Luxury Nameplate" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/6.jpg'], 0)" data-title="Luxury Couple Nameplate"
+                  data-price="₹1599">
                 <div class="menu-content">
-                  <h5>Luxury Couple Nameplate </h5>
-                  <p>Luxury resin nameplate with LED backlight and premium finishing touches.</p>
+                  <h5>Couple Farmes</h5>
+                  <p>An 8-inch couple frame is a compact photo frame designed to beautifully display a couple's picture,
+                    perfect for bedside tables or as a romantic gift</p>
                   <!-- <div class="price">₹1599</div> -->
-                  <a href="#" class="order-btn"
-                    onclick="orderProduct('Luxury Couple Nameplate', 'Luxury resin nameplate with LED backlight and premium finishing touches', '₹1599')">Order
+                  <a href="#" class="order-btn" onclick="orderProduct('Couple Farmes', 'A 8 Inch', '₹1599')">Order
                     Now</a>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-6 isotope-item filter-dessert">
+            <div class="col-lg-6 isotope-item filter-main filter-dessert">
               <div class="d-flex menu-item align-items-center gap-4">
-                <img src="assets/img/restaurant/dessert-7.webp" alt="Love Collection"
-                  class="menu-img img-fluid rounded-3"
-                  onclick="openImageModal(['assets/img/restaurant/dessert-7.webp'], 0)"
+                <img src="assets/img/gallery/7.webp" alt="Love Collection" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/7.webp','assets/img/gallery/8.webp'], 0)"
                   data-title="Romantic Love Collection" data-price="₹1199">
                 <div class="menu-content">
                   <h5>Romantic Love Collection </h5>
@@ -531,8 +1182,8 @@
 
             <div class="col-lg-6 isotope-item filter-drinks">
               <div class="d-flex menu-item align-items-center gap-4">
-                <img src="assets/img/gallery/2.webp" alt="Mini Photo Album" class="menu-img img-fluid rounded-3"
-                  onclick="openImageModal(['assets/img/gallery/2.webp', 'assets/img/gallery/3.webp'], 0)"
+                <img src="assets/img/gallery/21.jpeg" alt="Mini Photo Album" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/21.jpeg','assets/img/gallery/23.jpeg'], 0)"
                   data-title="Custom Mini Photo Album" data-price="₹799">
                 <div class="menu-content">
                   <h5>Custom Mini Photo Album </h5>
@@ -540,6 +1191,22 @@
                   <!-- <div class="price">₹799</div> -->
                   <a href="#" class="order-btn"
                     onclick="orderProduct('Custom Mini Photo Album', 'Personalized mini photo album with resin cover featuring your favorite memories')">Order
+                    Now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 isotope-item filter-starters">
+              <div class="menu-item d-flex align-items-center gap-4">
+                <img src="assets/img/gallery/9.webp" alt="Resin Bracelet" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/9.webp', 'assets/img/gallery/10.webp'], 0)"
+                  data-title="Elegant Resin Bracelet" data-price="₹599">
+                <div class="menu-content">
+                  <h5>Resin Frame With Flowers</h5>
+                  <p>Beautiful handcrafted resin Frame with unique Flowers and vibrant colors.</p>
+                  <!-- <div class="price">₹599</div> -->
+                  <a href="#" class="order-btn"
+                    onclick="orderProduct('Resin Frame With Flowers', 'Beautiful handcrafted resin Frame with unique Flowers and vibrant colors.', '4 inch')">Order
                     Now</a>
                 </div>
               </div>
@@ -561,14 +1228,13 @@
               </div>
             </div>
 
-            <div class="col-lg-6 isotope-item filter-starters">
+            <div class="col-lg-6 isotope-item filter-main">
               <div class="d-flex menu-item align-items-center gap-4">
-                <img src="assets/img/restaurant/starter-5.webp" alt="Premium Resin Bracelet"
-                  class="menu-img img-fluid rounded-3"
-                  onclick="openImageModal(['assets/img/restaurant/starter-5.webp'], 0)"
+                <img src="assets/img/gallery/19.jpeg" alt="Premium Resin Bracelet" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/19.jpeg','assets/img/gallery/14.jpeg','assets/img/gallery/15.jpeg'], 0)"
                   data-title="Premium Resin Bracelet" data-price="₹799">
                 <div class="menu-content">
-                  <h5>Premium Resin Bracelet</h5>
+                  <h5>Resin Bracelet</h5>
                   <p>Premium quality resin bracelet with gold leaf accents and artistic design.</p>
                   <!-- <div class="price">₹799</div> -->
                   <a href="#" class="order-btn"
@@ -580,8 +1246,8 @@
 
             <div class="col-lg-6 isotope-item filter-drinks">
               <div class="d-flex menu-item align-items-center gap-4">
-                <img src="assets/img/gallery/1.webp" alt="Memory Album" class="menu-img img-fluid rounded-3"
-                  onclick="openImageModal(['assets/img/restaurant/drink-8.webp', 'assets/img/restaurant/drink-9.webp'], 0)"
+                <img src="assets/img/gallery/11.jpg" alt="Memory Album" class="menu-img img-fluid rounded-3"
+                  onclick="openImageModal(['assets/img/gallery/11.jpg', 'assets/img/gallery/12.jpg','assets/img/gallery/13.jpg'], 0)"
                   data-title="Premium Memory Album" data-price="₹999">
                 <div class="menu-content">
                   <h5>Premium Memory Album </h5>
@@ -612,7 +1278,7 @@
       <div class="modal-content">
         <span class="close-modal" onclick="closeImageModal()">&times;</span>
         <div class="modal-images">
-          <img id="modalImage" class="modal-image" src="" alt="">
+          <img id="modalImage" class="modal-image" src="/placeholder.svg" alt="">
           <button class="nav-arrow prev-arrow" onclick="changeImage(-1)" style="display: none;">❮</button>
           <button class="nav-arrow next-arrow" onclick="changeImage(1)" style="display: none;">❯</button>
           <div class="image-counter" id="imageCounter" style="display: none;"></div>
@@ -627,7 +1293,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Real Stories. Real Smiles</h2>
-        <p>Don’t just take our word for it—see how our products are making a difference for people every day.</p>
+        <p>Don't just take our word for it—see how our products are making a difference for people every day.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -667,7 +1333,7 @@
                     class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
-                  I ordered a resin earring and a moon keychain from Resin Gallery, and I’m absolutely in love with
+                  I ordered a resin earring and a moon keychain from Resin Gallery, and I'm absolutely in love with
                   both! 🌙✨
                   The quality is top-notch, and the designs are so dreamy and unique. The service was smooth,
                   responsive, and really pleasant.
@@ -840,7 +1506,8 @@
               </div>
 
               <div class="cta-wrapper" data-aos="fade-up" data-aos-delay="600">
-                <a href="#" class="btn-book">For Order</a>
+                <a href="https://wa.me/919500826812?text=Hello%20I%20want%20to%20order%20your%20product" target="_blank"
+                  class="btn-book">For Order</a>
                 <a href="#" class="btn-contact">Contact Us</a>
               </div>
             </div>
@@ -876,7 +1543,7 @@
                       <li><i class="bi bi-calendar-date"></i> 15th August</li>
                       <li><i class="bi bi-clock"></i> Active</li>
                     </ul>
-                    <p>“Freedom in Colors” Offer – Flat 15% Off on all tricolor-themed resin art.
+                    <p>"Freedom in Colors" Offer – Flat 15% Off on all tricolor-themed resin art.
                     </p>
                     <!-- <p>Buy 1, Gift 1 Freedom Mini – Buy any décor item, get a small resin keychain/coaster free.
                     </p> -->
@@ -907,12 +1574,12 @@
                       <li><i class="bi bi-calendar-date"></i> Soon</li>
                       <li><i class="bi bi-clock"></i> Upcoming</li>
                     </ul>
-                    <!-- <p>“Light Up Your Home” Offer – Flat 20% Off on resin lamps, tea-light holders, and festive décor.
+                    <!-- <p>"Light Up Your Home" Offer – Flat 20% Off on resin lamps, tea-light holders, and festive décor.
                     </p> -->
                     <!-- <p>Diwali Gifting Packs – Special combo packs of coasters + trays + keychains, beautifully
                       gift-wrapped.
                     </p> -->
-                    <p>“Sparkle with Resin” Contest – Customers who buy during Diwali enter a giveaway to win a custom
+                    <p>"Sparkle with Resin" Contest – Customers who buy during Diwali enter a giveaway to win a custom
                       resin art piece.
                     </p>
                     <!-- <p>Limited-Edition Festival Collection – Gold, glitter, and deep colors (like royal blue, maroon,
@@ -962,8 +1629,8 @@
               </div>
               <div class="info-content">
                 <h4>Email Address</h4>
-                <p>info@example.com</p>
-                <p>contact@example.com</p>
+                <p>Nithish.ks239@gmail.com</p>
+                <p>Nithish.ks239@gmail.com</p>
               </div>
             </div>
           </div>
@@ -1072,8 +1739,6 @@
 
         </div>
 
-
-
         <div class="col-lg-2 col-6 footer-links">
           <!-- <h4>Our Services</h4>
           <ul>
@@ -1088,8 +1753,8 @@
           <h4>Useful Links</h4>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Gallery</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#menu">Gallery</a></li>
             <!-- <li><a href="#">Terms of service</a></li>
             <li><a href="#">Privacy policy</a></li> -->
           </ul>
@@ -1125,7 +1790,7 @@
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">Nova Infotech</a>
+        Designed by <a href="">Nova Infotech</a>
       </div>
     </div>
 
@@ -1140,7 +1805,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -1155,6 +1820,113 @@
       const pdfPath = 'assets/img/RESIN GALLERY DAIRY.pdf';
       window.open(pdfPath, '_blank');
     }
+
+    // Enhanced Celebration Popup Functions
+    function openCelebrationPopup() {
+      const popup = document.getElementById('celebrationPopup');
+      popup.classList.add('show');
+      document.body.style.overflow = 'hidden';
+
+      // Create additional dynamic particles
+      createDynamicParticles();
+
+      // Optional: Play celebration sound
+      // const audio = new Audio('assets/sounds/magical-celebration.mp3');
+      // audio.play().catch(e => console.log('Audio play failed:', e));
+    }
+
+    function closeCelebrationPopup() {
+      const popup = document.getElementById('celebrationPopup');
+      popup.classList.remove('show');
+      document.body.style.overflow = 'auto';
+
+      // Remove dynamic particles
+      removeDynamicParticles();
+    }
+
+    // Create dynamic floating particles
+    function createDynamicParticles() {
+      const popup = document.getElementById('celebrationPopup');
+      const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
+
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'dynamic-particle';
+        particle.style.cssText = `
+          position: absolute;
+          width: ${Math.random() * 10 + 5}px;
+          height: ${Math.random() * 10 + 5}px;
+          background: radial-gradient(circle, ${colors[Math.floor(Math.random() * colors.length)]}, transparent);
+          border-radius: 50%;
+          left: ${Math.random() * 100}%;
+          top: 100%;
+          pointer-events: none;
+          animation: dynamicFloat ${Math.random() * 3 + 4}s linear infinite;
+          animation-delay: ${Math.random() * 2}s;
+          box-shadow: 0 0 20px currentColor;
+        `;
+        popup.appendChild(particle);
+      }
+
+      // Add dynamic keyframes
+      if (!document.getElementById('dynamicStyles')) {
+        const style = document.createElement('style');
+        style.id = 'dynamicStyles';
+        style.textContent = `
+          @keyframes dynamicFloat {
+            0% {
+              transform: translateY(0) rotate(0deg) scale(0);
+              opacity: 0;
+            }
+            10% {
+              opacity: 1;
+              transform: translateY(-10vh) rotate(36deg) scale(1);
+            }
+            90% {
+              opacity: 1;
+              transform: translateY(-90vh) rotate(324deg) scale(1);
+            }
+            100% {
+              transform: translateY(-100vh) rotate(360deg) scale(0);
+              opacity: 0;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+
+    // Remove dynamic particles
+    function removeDynamicParticles() {
+      const particles = document.querySelectorAll('.dynamic-particle');
+      particles.forEach(particle => particle.remove());
+    }
+
+    // Function to update celebration image
+    function updateCelebrationImage(imageSrc) {
+      const celebrationImage = document.getElementById('celebrationImage');
+      celebrationImage.src = imageSrc;
+    }
+
+    // Close popup when clicking outside
+    document.getElementById('celebrationPopup').addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeCelebrationPopup();
+      }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeCelebrationPopup();
+      }
+    });
+
+    // Auto-trigger celebration popup on page load (demo purposes)
+    window.addEventListener('load', function () {
+      setTimeout(openCelebrationPopup, 1000); // Show after 1 second for demo
+    });
+
     // JavaScript for Order Functionality
     function orderProduct(title, description, price) {
       // Format the message for WhatsApp
@@ -1264,6 +2036,8 @@
         }
       }
     });
+
+
   </script>
 
 </body>
