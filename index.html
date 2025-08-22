@@ -1142,7 +1142,7 @@
                     cherished baby items like photos, tiny belongings as lifelong memories.</p>
                   <!-- <div class="price">₹1299</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Baby Things Preservation Frame', 'Beautiful personalized resin nameplate perfect for couples and home decoration', '₹1299')">Order
+                    onclick="orderProduct('Baby Things Preservation Frame', '')">Order
                     Now</a>
                 </div>
               </div>
@@ -1158,7 +1158,7 @@
                   <p>An 8-inch couple frame is a compact photo frame designed to beautifully display a couple's picture,
                     perfect for bedside tables or as a romantic gift</p>
                   <!-- <div class="price">₹1599</div> -->
-                  <a href="#" class="order-btn" onclick="orderProduct('Couple Farmes', 'A 8 Inch', '₹1599')">Order
+                  <a href="#" class="order-btn" onclick="orderProduct('Couple Farmes' ,'8 inch')">Order
                     Now</a>
                 </div>
               </div>
@@ -1174,7 +1174,7 @@
                   <p>Beautifully crafted romantic collection featuring love-themed resin art pieces.</p>
                   <!-- <div class="price">₹1199</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Romantic Love Collection', 'Beautifully crafted romantic collection featuring love-themed resin art pieces', '₹1199')">Order
+                    onclick="orderProduct('Romantic Love Collection', '')">Order
                     Now</a>
                 </div>
               </div>
@@ -1190,7 +1190,7 @@
                   <p>Personalized mini photo album with resin cover featuring your favorite memories.</p>
                   <!-- <div class="price">₹799</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Custom Mini Photo Album', 'Personalized mini photo album with resin cover featuring your favorite memories')">Order
+                    onclick="orderProduct('Custom Mini Photo Album', '')">Order
                     Now</a>
                 </div>
               </div>
@@ -1206,7 +1206,7 @@
                   <p>Beautiful handcrafted resin Frame with unique Flowers and vibrant colors.</p>
                   <!-- <div class="price">₹599</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Resin Frame With Flowers', 'Beautiful handcrafted resin Frame with unique Flowers and vibrant colors.', '4 inch')">Order
+                    onclick="orderProduct('Resin Frame With Flowers', '4 inch')">Order
                     Now</a>
                 </div>
               </div>
@@ -1222,7 +1222,7 @@
                   <p>Perfect Valentine's gift set with resin heart keychains and decorative items.</p>
                   <!-- <div class="price">₹899</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Valentine\'s Day Gift Set', 'Perfect Valentine\'s gift set with resin heart keychains and decorative items', '₹899')">Order
+                    onclick="orderProduct('Valentine\'s Day Gift Set', '')">Order
                     Now</a>
                 </div>
               </div>
@@ -1238,7 +1238,7 @@
                   <p>Premium quality resin bracelet with gold leaf accents and artistic design.</p>
                   <!-- <div class="price">₹799</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Premium Resin Bracelet', 'Premium quality resin bracelet with gold leaf accents and artistic design', '₹799')">Order
+                    onclick="orderProduct('Premium Resin Bracelet', '')">Order
                     Now</a>
                 </div>
               </div>
@@ -1254,7 +1254,7 @@
                   <p>Premium quality photo album with artistic resin design and gold detailing.</p>
                   <!-- <div class="price">₹999</div> -->
                   <a href="#" class="order-btn"
-                    onclick="orderProduct('Premium Memory Album', 'Premium quality photo album with artistic resin design and gold detailing', '₹999')">Order
+                    onclick="orderProduct('Premium Memory Album', '')">Order
                     Now</a>
                 </div>
               </div>
@@ -1928,13 +1928,12 @@
     });
 
     // JavaScript for Order Functionality
-    function orderProduct(title, description, price) {
+    function orderProduct(title, price) {
       // Format the message for WhatsApp
       const message = `Hello! I would like to order:
 
       Product: ${title}
-      Description: ${description}
-      Price: ${price}
+      Product Size: ${price}
 
       Please provide more details about availability and delivery.`;
 
