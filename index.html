@@ -231,10 +231,7 @@
       position: relative;
       width: 600px;
       height: 600px;
-      background: linear-gradient(135deg,
-          rgba(255, 255, 255, 0.95) 0%,
-          rgba(240, 248, 255, 0.95) 50%,
-          rgba(255, 240, 245, 0.95) 100%);
+      background: transparent;
       border-radius: 30px;
       box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.3),
@@ -352,9 +349,9 @@
     }
 
     .celebration-image-container {
-      height: 400;
+      height: 500;
       width: 400;
-      padding: 40px;
+      padding: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -363,7 +360,7 @@
 
     .celebration-image {
       width: 350px;
-      height: 400px;
+      height: 500px;
       border-radius: 25px;
       object-fit: cover;
       box-shadow:
@@ -372,7 +369,7 @@
         0 0 0 10px rgba(138, 43, 226, 0.3);
       animation: imageEnchantment 4s ease-in-out infinite;
       border: 5px solid transparent;
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4) padding-box,
+      background: linear-gradient(45deg, #ffe600, #4ecdc4, #45b7d1, #96ceb4) padding-box,
         linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4) border-box;
       position: relative;
       z-index: 2;
@@ -418,8 +415,8 @@
       position: absolute;
       top: 20px;
       right: 25px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-      border: 2px solid rgba(255, 255, 255, 0.5);
+      background: linear-gradient(135deg, rgba(243, 239, 14, 0.5), rgba(214, 11, 146, 0.2));
+      border: 2px solid white;
       color: white;
       font-size: 28px;
       width: 50px;
@@ -436,7 +433,7 @@
     }
 
     .celebration-close:hover {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+      background: linear-gradient(135deg, rgba(243, 239, 14, 0.5), rgba(214, 11, 11, 0.2));
       transform: rotate(180deg) scale(1.2);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
@@ -455,7 +452,7 @@
     }
 
     .magical-particle:nth-child(even) {
-      background: radial-gradient(circle, #4ecdc4, transparent);
+      background: radial-gradient(circle, #fffb05, transparent);
       animation-duration: 5s;
     }
 
@@ -494,7 +491,7 @@
       top: 15%;
       left: 10%;
       animation-delay: 0s;
-      color: #ff6b6b;
+      color: #ffee6b;
     }
 
     .floating-magic:nth-child(2) {
@@ -564,7 +561,7 @@
       background: radial-gradient(circle, white, transparent);
       border-radius: 50%;
       animation: sparkleEnhanced 3s ease-in-out infinite;
-      box-shadow: 0 0 10px white;
+      box-shadow: 0 0 10px rgb(202, 216, 13);
     }
 
     .sparkle-enhanced:nth-child(1) {
@@ -633,7 +630,7 @@
     .magical-orb:nth-child(1) {
       top: 10%;
       left: 80%;
-      background-color: #ff6b6b;
+      background-color: #fff36b;
       animation-delay: 0s;
     }
 
@@ -747,7 +744,7 @@
 
       .celebration-image {
         width: 280px;
-        height: 280px;
+        height: 400px;
       }
 
       .celebration-title {
@@ -771,7 +768,7 @@
 
       .celebration-image {
         width: 250px;
-        height: 250px;
+        height: 400px;
       }
 
       .celebration-title {
@@ -830,9 +827,9 @@
 
       <button class="celebration-close" onclick="closeCelebrationPopup()">×</button>
 
-      <div class="celebration-header">
+      <!-- <div class="celebration-header">
         <h2 class="celebration-title">🎉 Magical Birthday Celebration! 🎂✨</h2>
-      </div>
+      </div> -->
 
       <div class="celebration-image-container">
         <img id="celebrationImage" class="celebration-image" src="assets/img/gallery/birthday.jpeg"
@@ -1535,15 +1532,15 @@
                 </div>
                 <div class="event-content">
                   <div class="event-image">
-                    <img src="assets/img/gallery/indiaflag.jpg" alt="Summer Wine Festival" class="img-fluid">
+                    <img src="assets/img/gallery/indiaflag.jpeg" alt="Summer Wine Festival" class="img-fluid">
                   </div>
                   <div class="event-info">
-                    <h4>Independence Day Offers</h4>
+                    <h4>Mega Giveaway</h4>
                     <ul class="event-meta">
                       <li><i class="bi bi-calendar-date"></i> 15th August</li>
                       <li><i class="bi bi-clock"></i> Active</li>
                     </ul>
-                    <p>"Freedom in Colors" Offer – Flat 15% Off on all tricolor-themed resin art.
+                    <p>"Win exciting prizes" - Don’t miss out on your chance to win exciting resin creations!.
                     </p>
                     <!-- <p>Buy 1, Gift 1 Freedom Mini – Buy any décor item, get a small resin keychain/coaster free.
                     </p> -->
